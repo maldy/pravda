@@ -1,0 +1,87 @@
+/* Base styles*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body { 
+  font: 13px 'Helvetica Neue', Arial, sans-serif;
+  background: #D8D5D2;
+  color: #222;
+}
+
+a {
+  color: #A2C;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #D26;
+}
+
+h1, h2 {
+  font-weight:100;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h1, h2, h3, p, ul, ol, pre, dl {
+  margin-bottom: 1.0em;
+}
+
+ul, ol {
+  padding-left: 12px;
+}
+
+/**** Masonry CSS ****/
+
+#wall {
+  background: #FFF;
+  border: 0px solid #456;
+  padding: 10px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	clear: both;
+	-webkit-border-radius: 5px;
+	   -moz-border-radius: 5px;
+	        border-radius: 5px;
+}
+
+.box {
+  margin: 5px;
+  padding: 5px;
+  background: #D8D5D2;
+  font-size: 11px;
+  float: left;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+}
+
+.col1 { width: 80px; }
+.col2 { width: 180px; }
+.col3 { width: 280px; }
+.col4 { width: 380px; }
+.col5 { width: 480px; }
+
+.col1 img { max-width: 80px; }
+.col2 img { max-width: 180px; }
+.col3 img { max-width: 280px; }
+.col4 img { max-width: 380px; }
+.col5 img { max-width: 480px; }
+
+
+
+/**** Clearfixes ****/
+
+.wrap:after { 
+  content: ''; 
+  display: block; 
+  height: 0; 
+  clear: both; 
+  visibility: hidden;
+}
