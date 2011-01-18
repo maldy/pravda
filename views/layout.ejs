@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+  <title><%= title %></title>
+  <meta name="description" content="<%= description %>">
+  <meta name="author" content="<%= author %>">
+
+  <link media='screen' href='/css/style.css' rel='stylesheet'></link>
+  <script type='text/javascript' src='/js/jquery.min.js'></script>
+  <script type='text/javascript' src='/js/jquery.masonry.js'></script>
+  <script type='text/javascript'>
+    $(document).ready(function() {
+      var $wall = $('#main');
+      $wall.masonry({
+        itemSelector: '.box',
+        columnWidth: 100
+      });
+    })
+    </script>
+</head>
+
+<body>
+  <div id="container">
+    <header>
+        <%= header %>
+    </header>
+    
+    <div id="main">
+        <%- body %>
+    </div>
+    
+    <footer>
+        <%= footer %>
+    </footer>
+  </div> <!--! end of #container -->
+</body>
+</html>

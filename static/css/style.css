@@ -52,7 +52,7 @@ ul, ol {
 }
 
 .box {
-  margin: 5px;
+  border: 5px white solid;
   padding: 5px;
   background: #D8D5D2;
   font-size: 11px;
