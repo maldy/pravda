@@ -5,7 +5,8 @@
 3. Packages installed with npm:
     1. express
     2. ejs
-    3. node-inspector (optional)
+    3. mongoose
+    4. node-inspector (optional)
 
 == Running
 
