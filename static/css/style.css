@@ -37,11 +37,17 @@ ul, ol {
   padding-left: 12px;
 }
 
+/**** General CSS ****/
+
+#container {
+  margin: auto;
+  width: 1020px;
+}
+
 /**** Masonry CSS ****/
 
-#wall {
+#main {
   background: #FFF;
-  border: 0px solid #456;
   padding: 10px;
 	margin-bottom: 20px;
 	border-radius: 5px;
@@ -52,8 +58,8 @@ ul, ol {
 }
 
 .box {
-  border: 5px white solid;
   padding: 5px;
+  margin-bottom: 5px;
   background: #D8D5D2;
   font-size: 11px;
   float: left;
@@ -84,4 +90,14 @@ ul, ol {
   height: 0; 
   clear: both; 
   visibility: hidden;
+}
+
+.left {
+  float: left;
+  display: inline;
+}
+
+.right {
+  float: right;
+  display: inline;
 }

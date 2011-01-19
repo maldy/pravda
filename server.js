@@ -4,36 +4,7 @@ var express  = require('express')
 var app      = express.createServer();
 
 //start model section
-var mongoose = require('mongoose').Mongoose
-
-mongoose.model('User', {
-
-    properties: ['name', 'prefs'],
-
-    indexes: ['name'],
-
-    setters: {
-//      first: function(v){
-//          return this.v.capitalize();
-//      }
-    },
-
-    getters: {
-//      full_name: function(){ 
-//          return this.first + ' ' + this.last 
-//      }
-    },
-
-    methods: {
-        save: function(fn){
-            this.updated_at = new Date();
-            this.__super__(fn);
-        }
-    },
-});
-
-var db     = mongoose.connect('mongodb://localhost/test')
-var User   = db.model('User')
+require('./models')
 // End model section
 
 // Start app section
@@ -77,8 +48,8 @@ app.post('/users', function(req, res){
 app.get('/:username', function(req, res) {
     res.render('index.ejs', { 
         locals: {
-            header: 'Header',
-            footer: 'Footer',
+            header: 'Welcome '+req.params.username,
+            footer: '&copy; Naked Horse',
             title: 'News Page',
             description: 'A Page of news',
             author: 'Naked Horse'
