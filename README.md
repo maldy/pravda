@@ -6,7 +6,8 @@
     1. express
     2. ejs
     3. mongoose
-    4. node-inspector (optional)
+	4. htmlparser
+	5. node-inspector (optional)
 
 == Running
 
