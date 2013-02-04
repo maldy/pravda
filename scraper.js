@@ -1,11 +1,12 @@
 var http = require('http');
 var rss = require('./node-rss');
-var feed_url_list = {	'http://news.google.com/news?pz=1&cf=all&ned=in&hl=en&topic=t&output=rss', 
-						'http://news.google.com/news?pz=1&cf=all&ned=in&hl=en&topic=b&output=rss',
-						'http://rss.news.yahoo.com/rss/tech',
-						'http://rss.news.yahoo.com/rss/business',
-						'http://feeds.feedburner.com/TechCrunch'
-					};
+var feed_url_list = [	'http://news.google.com/news?pz=1&cf=all&ned=in&hl=en&topic=t&output=rss', 
+			'http://news.google.com/news?pz=1&cf=all&ned=in&hl=en&topic=b&output=rss', 
+			'http://rss.news.yahoo.com/rss/tech', 
+			'http://rss.news.yahoo.com/rss/business', 
+			'http://feeds.feedburner.com/TechCrunch'
+			];
+
 var htmlparser = require('htmlparser');
 
 var handler = new htmlparser.DefaultHandler(function (error, dom) {
@@ -65,7 +66,7 @@ function scraper(feed_url_list) {
 				parser.parseComplete(articles[i].content);	// bringing in htmlparser to json-ise the html content
 				db_entry.img_link = find_image(handler.dom);
 				plain_text_content = get_text(handler.dom);
-				db_entry.content = articles[i].content);	// loading entry with raw html-formatted content, use plain_text_content for just text
+				db_entry.content = articles[i].content;	// loading entry with raw html-formatted content, use plain_text_content for just text
 				
 				// generating 30-word summary from content if rss entry doesn't come with description
 				if (!db_entry.summary){

@@ -1,7 +1,9 @@
 require('sys')
-require('ejs')
-var express  = require('express')
-var app      = express.createServer();
+var engine = require('ejs-locals')
+var express = require('express')
+var app = express();
+
+app.engine('ejs', engine);
 
 //start model section
 require('./models')
@@ -10,8 +12,9 @@ require('./models')
 // Start app section
 app.configure(function() {
     app.set('views', __dirname + '/views');
-    app.use(express.staticProvider(__dirname + '/static'));
-    app.use(express.bodyDecoder());
+    app.set('view engine', 'ejs');
+    app.use(express.static(__dirname + '/static'));
+    app.use(express.bodyParser());
 })
 
 app.get('/', function(req, res){
@@ -26,10 +29,10 @@ app.get('/', function(req, res){
     }) 
 });
 
-
 app.post('/users', function(req, res){
     var user_name= req.body.user.name
-    User.find({name: user_name}).all(function(result){
+/*	TODO clean up models with new mongoose api
+    User.findOne({name: user_name}, function(err, result){
         if(result.length > 0) {
             console.log(user_name+' exists!')
             console.log(result)
@@ -42,6 +45,7 @@ app.post('/users', function(req, res){
             u.save(function() {console.log(user_name+' Saved!')})
         }
     })
+*/
     res.redirect('/'+user_name)
 });
 

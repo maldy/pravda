@@ -127,8 +127,7 @@ exports.parseURL = function(url, cb) {
 	
 
 	var redirection_level = 0;
-	// NOTE: modified this portion here to behave nicely with our proxy server, needs to be cleaned later --maldy
-  	var client = http.createClient(8080, '144.16.192.245');
+  	var client = http.createClient(parts.port, parts.hostname);
 	var request = client.request('GET', parts.pathname, {'host': parts.hostname});
 	request.addListener('response', function (response) {
 	    //sys.puts('STATUS: ' + response.statusCode);

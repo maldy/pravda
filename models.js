@@ -1,31 +1,29 @@
-var mongoose = require('mongoose').Mongoose
+var mongoose = require('mongoose')
 
 //User
-mongoose.model('User', {
+var userSchema = mongoose.Schema({
     properties: ['name', 'prefs', 'updated_at'],
     indexes: ['name'],
-    methods: {
-        save: function(fn){
-            this.updated_at = new Date();
-            this.__super__(fn);
-        }
-    },
 })
+userSchema.methods.save = function(fn){
+    this.updated_at = new Date();
+    this.__super__(fn);
+}
+
+var User = mongoose.model('User', userSchema)
 
 //Post
 //post.related_links.push({ url: 'http://something....', source: 'The Wall Street Journal' });
-mongoose.model('Post', {
+var postSchema = mongoose.Schema( {
     properties: ['link', 'img_link', 'headline', 'content', 'summary', 'rank', 'crawled_at', 'related_links'],
     indexes: ['link'],
-    methods: {
-        save: function(fn) {
-            this.crawled_at = new Date();
-            this.__super__(fn)
-        }
-    }
 })
+postSchema.methods.save = function(fn){
+    this.crawled_at = new Date();
+    this.__super__(fn)
+}
 
+var Post = mongoose.model('Post', postSchema)
 
-var db     = mongoose.connect('mongodb://localhost/test')
-User   = db.model('User')
-Post   = db.model('Post')
+mongoose.connect('mongodb://localhost/test')
+var db = mongoose.connection
